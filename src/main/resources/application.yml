@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: Key-Cloak-Embedded
+  datasource:
+    username: sa
+#    password: root
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+  h2:
+   console:
+    enabled : true
+    path: /h2-console  
+    
+  liquibase:
+    change-log: classpath:db/changelog/dbchangelog.xml
+    enabled: true  
+    
+    
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/keycloak
+
+#    jpa.show-sql: true
+#  liquibase:
+#    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+keycloak:
+  server:
+    contextPath: /auth
+    adminUser:
+      username: admin
+      password: admin
+    realmImportFile: baeldung-realm.json
+
+
